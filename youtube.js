@@ -5,7 +5,7 @@ var fs = require("fs");
 
 module.exports.isValidVideo = function(url){
   return new Promise(function(resolve, reject){
-    validateYoutube(url).then(resolve).catch(reject);
+    validateYoutube.validateVideoID(url).then(resolve).catch(reject);
   });
 }
 
