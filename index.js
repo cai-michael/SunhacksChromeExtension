@@ -35,6 +35,11 @@ app.post("/video", function(req, res){
       res.redirect("/");
     }else{
       var parsedQuery = querystring.parse(parsedURL.query);
+
+      if(parsedURL.host.includes("youtube.com") && !(parsedQuery))
+      {
+        res.redirect("/");
+      }
       res.redirect("/videos/" + parsedQuery.v)
     }
   }else{
