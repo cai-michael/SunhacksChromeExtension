@@ -9,6 +9,8 @@ var isURL = require("is-url");
 // Allows us to parse url and the query
 var url = require("url");
 var querystring = require("querystring");
+// Allows us to check whether a youtube video exists
+var videoValidator = require("./youtube")
 
 var app = express();
 
