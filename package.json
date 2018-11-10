@@ -1,0 +1,19 @@
+{
+  "name": "tubescii",
+  "version": "0.0.0",
+  "description": "YouTube but ASCII",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cai-michael/TubeSCII.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cai-michael/TubeSCII/issues"
+  },
+  "homepage": "https://github.com/cai-michael/TubeSCII#readme"
+}
