@@ -1,9 +1,8 @@
 @charset "UTF-8";
 
 
-h1 {
-  color: #FFC0CB;
-}
-#bananna {
-  font-family:"Comic Sans MS";
+html {
+  background-color: black;
+  color: green;
+  font-family: "Courier New", monospace;
 }
