@@ -13,42 +13,42 @@ var querystring = require("querystring");
 var app = express();
 
 // Parse the body of forms
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 
-app.get("/", function(req, res){
+app.get("/", function(req, res) {
   var p = path.join(__dirname, "views", "home.html");
   res.sendFile(p)
 });
 
-app.get("/videos/:videoid", function(req, res){
+app.get("/videos/:videoid", function(req, res) {
   res.end(req.params.videoid)
 })
 
-app.get("/hello", function(req, res){
+app.get("/hello", function(req, res) {
   res.end("Hello world!!!")
 });
 
-app.post("/video", function(req, res){
-  if(isURL(req.body.videoURL)){
+app.post("/video", function(req, res) {
+  if (isURL(req.body.videoURL)) {
     var parsedURL = url.parse(req.body.videoURL)
-    if(!parsedURL.host.includes("youtube.com")){
+    if (!parsedURL.host.includes("youtube.com")) {
       res.redirect("/");
-    }else{
-      if(parsedURL.query == undefined)
-      {
+    } else {
+      if (parsedURL.query == undefined) {
         res.redirect("/");
-      }
-      else {
+      } else {
         var parsedQuery = querystring.parse(parsedURL.query);
         res.redirect("/videos/" + parsedQuery.v)
       }
     }
-  }else{
+  } else {
     res.redirect("/");
   }
 });
 
-app.listen(8080, function(err){
-  if(err) throw err;
+app.listen(8080, function(err) {
+  if (err) throw err;
   console.log("Running!")
 });
