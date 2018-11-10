@@ -26,8 +26,13 @@ app.get("/hello", function(req, res){
 app.post("/video", function(req, res){
   if(isURL(req.body.videoURL)){
     var parsedURL = url.parse(req.body.videoURL)
-    var parsedQuery = querystring.parse(parsedURL.query);
-    res.redirect("/videos/" + parsedQuery.v)
+    console.log(parsedURL.host);
+    if(!parsedURL.host.includes("youtube.com")){
+      res.redirect("/");
+    }else{
+      var parsedQuery = querystring.parse(parsedURL.query);
+      res.redirect("/videos/" + parsedQuery.v)
+    }
   }else{
     res.redirect("/");
   }
