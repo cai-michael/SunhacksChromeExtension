@@ -18,7 +18,7 @@ var app = express();
 app.use(bodyParser.urlencoded({
   extended: false
 }))
-
+app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", function (req, res) {
   var p = path.join(__dirname, "views", "home.html");
   res.sendFile(p)
