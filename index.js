@@ -11,6 +11,8 @@ var url = require("url");
 var querystring = require("querystring");
 // Allows us to check whether a youtube video exists
 var videoValidator = require("./youtube")
+// Allows us to see if we already have downloaded a video
+var isDownloaded = require("file-exists")
 
 var app = express();
 
@@ -24,15 +26,15 @@ app.get("/", function (req, res) {
   res.sendFile(p)
 });
 
-app.get("/videos/:videoid", function (req, res) {
+app.get("/videos/:videoid", function(req, res) {
   res.end(req.params.videoid)
 })
 
-app.get("/hello", function (req, res) {
+app.get("/hello", function(req, res) {
   res.end("Hello world!!!")
 });
 
-app.post("/video", function (req, res) {
+app.post("/video", function(req, res) {
   if (isURL(req.body.videoURL)) {
     var parsedURL = url.parse(req.body.videoURL)
     if (!parsedURL.host.includes("youtube.com")) { //if URL doesn't include youtube.com
@@ -54,7 +56,39 @@ app.post("/video", function (req, res) {
   }
 });
 
-app.listen(8080, function (err) {
+app.get("/check/:videoid", function(req, res) {
+  //check to see if the video is a valid video
+  (videoValidator.isValidVideo(req.params.videoid)).then(function() {
+    //if the video is valid check to see if it is downloaded
+    console.log("past IsValid")
+    isDownloaded(path.join(__dirname, "videos", req.params.videoid + ".mp4")).then(function(downloaded) {
+      //the video is downloaded already return object true
+      if (downloaded) {
+        res.json({
+          isValid: true,
+          downloaded: true
+        })
+      } else {
+        //the video is not downloaded return object false
+        res.json({
+          isValid: true,
+          downloaded: false
+        })
+      }
+    }).catch(function(){
+      res.json({
+        isValid: true,
+        downloaded: false
+      })
+    })
+  }).catch(function() {
+    res.json({
+      isValid: false
+    })
+  })
+});
+
+app.listen(8080, function(err) {
   if (err) throw err;
   console.log("Running!")
 });
