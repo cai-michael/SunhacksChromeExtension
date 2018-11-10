@@ -17,30 +17,34 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   var p = path.join(__dirname, "views", "home.html");
   res.sendFile(p)
 });
 
-app.get("/videos/:videoid", function(req, res) {
+app.get("/videos/:videoid", function (req, res) {
   res.end(req.params.videoid)
 })
 
-app.get("/hello", function(req, res) {
+app.get("/hello", function (req, res) {
   res.end("Hello world!!!")
 });
 
-app.post("/video", function(req, res) {
+app.post("/video", function (req, res) {
   if (isURL(req.body.videoURL)) {
     var parsedURL = url.parse(req.body.videoURL)
-    if (!parsedURL.host.includes("youtube.com")) {
+    if (!parsedURL.host.includes("youtube.com")) { //if URL doesn't include youtube.com
       res.redirect("/");
     } else {
-      if (parsedURL.query == undefined) {
+      if (parsedURL.query == undefined) { //if URL doesn't contain a query
         res.redirect("/");
       } else {
         var parsedQuery = querystring.parse(parsedURL.query);
-        res.redirect("/videos/" + parsedQuery.v)
+        if (parsedQuery.v == undefined) { //if URL doesn't contain valid video URL
+          res.redirect("/");
+        } else {
+          res.redirect("/videos/" + parsedQuery.v)
+        }
       }
     }
   } else {
@@ -48,7 +52,7 @@ app.post("/video", function(req, res) {
   }
 });
 
-app.listen(8080, function(err) {
+app.listen(8080, function (err) {
   if (err) throw err;
   console.log("Running!")
 });
