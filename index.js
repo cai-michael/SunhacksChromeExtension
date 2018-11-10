@@ -34,13 +34,14 @@ app.post("/video", function(req, res){
     if(!parsedURL.host.includes("youtube.com")){
       res.redirect("/");
     }else{
-      var parsedQuery = querystring.parse(parsedURL.query);
-
-      if(parsedURL.host.includes("youtube.com") && !(parsedQuery))
+      if(parsedURL.query == undefined)
       {
         res.redirect("/");
       }
-      res.redirect("/videos/" + parsedQuery.v)
+      else {
+        var parsedQuery = querystring.parse(parsedURL.query);
+        res.redirect("/videos/" + parsedQuery.v)
+      }
     }
   }else{
     res.redirect("/");
