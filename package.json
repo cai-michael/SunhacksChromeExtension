@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "file-exists": "^5.0.1",
     "is-url": "^1.2.4",
     "youtube-validate": "^1.2.4",
     "ytdl-core": "^0.28.0"
