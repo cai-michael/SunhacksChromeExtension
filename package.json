@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cai-michael/TubeSCII/issues"
   },
-  "homepage": "https://github.com/cai-michael/TubeSCII#readme"
+  "homepage": "https://github.com/cai-michael/TubeSCII#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
