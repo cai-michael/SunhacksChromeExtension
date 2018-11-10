@@ -60,7 +60,6 @@ app.get("/check/:videoid", function(req, res) {
   //check to see if the video is a valid video
   (videoValidator.isValidVideo(req.params.videoid)).then(function() {
     //if the video is valid check to see if it is downloaded
-    console.log("past IsValid")
     isDownloaded(path.join(__dirname, "videos", req.params.videoid + ".mp4")).then(function(downloaded) {
       //the video is downloaded already return object true
       if (downloaded) {
