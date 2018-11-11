@@ -18,6 +18,12 @@ $(document).ready(function () {
             alert("Invalid Video");
         }
     })
+    $("[name='Play']").click(function(){
+        $("#videlement")[0].play();
+    })
+    $("[name='Pause']").click(function(){
+        $("#videlement")[0].pause();
+    })
 })
 
 function checkDownload() {
