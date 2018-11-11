@@ -31,7 +31,6 @@ $(document).ready(function () {
     $("[name='Pause']").click(function () {
         $("#videlement")[0].pause();
     })
-    $("#videlement").one("loadeddata", runAscii)
 })
 
 function checkDownload() {
@@ -58,14 +57,17 @@ var count = 0;
 var animationInterval = null;;
 
 function getColor(cb) {
+    $("#gettingColor").show();
     axios.get("/color/" + vidid).then(function (res) {
         results = res.data.frames;
+        $("#asciiVid").html(results[0]);
+        $("#gettingColor").hide();
         cb();
     });
 }
 
 function startAnimation() {
-    if (animationInterval == null) animationInterval = setInterval(animate, 500)
+    if (animationInterval == null) animationInterval = setInterval(animate, 1000 / 3)
 }
 
 function stopAnimation() {
@@ -78,6 +80,11 @@ function stopAnimation() {
 function animate() {
     $("#asciiVid").html(results[count]);
     count++;
+    if(count >= results.length){
+        clearInterval(animationInterval);
+        animationInterval = null;
+        count = 0;
+    }
 }
 
 function runAscii() {
