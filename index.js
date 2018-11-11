@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use("/vids", express.static(path.join(__dirname, 'videos')))
 app.get("/", function (req, res) {
   var p = path.join(__dirname, "views", "home.html");
   res.sendFile(p)
@@ -56,6 +57,8 @@ app.post("/video", function(req, res) {
   }
 });
 
+var videosDownloading = [];
+
 app.get("/check/:videoid", function(req, res) {
   //check to see if the video is a valid video
   (videoValidator.isValidVideo(req.params.videoid)).then(function() {
@@ -71,13 +74,22 @@ app.get("/check/:videoid", function(req, res) {
         //the video is not downloaded return object false
         res.json({
           isValid: true,
-          downloaded: false
+          downloaded: false,
+          downloading: true
         })
+
+        if(videosDownloading.indexOf(req.params.videoid) == -1){
+          videosDownloading.push(req.params.videoid)
+          videoValidator.downloadVideo("https://www.youtube.com/watch?v=" + req.body.videoid).then(function(){
+            videosDownloading.splice(videosDownloading.indexOf(req.params.videoid), 1);
+          });
+        }
       }
     }).catch(function(){
       res.json({
         isValid: true,
-        downloaded: false
+        downloaded: false,
+        downloading: false
       })
     })
   }).catch(function() {
