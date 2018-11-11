@@ -39,6 +39,15 @@ app.get("/videos/:videoid", function(req, res) {
     })
   });
 })
+app.get("/videosc/:videoid", function(req, res) {
+  videoValidator.getInfo("https://www.youtube.com/watch?v=" + req.params.videoid).then(function(info) {
+    res.render("video-color", {
+      videoid: req.params.videoid,
+      title: info.title,
+      description: info.description.replace(new RegExp("\n", "g"),"<br>")
+    })
+  });
+})
 
 app.post("/video", function(req, res) {
   if (isURL(req.body.videoURL)) {
@@ -107,6 +116,15 @@ app.get("/check/:videoid", function(req, res) {
     })
   })
 });
+
+var ff = require("./ffmpeg");
+app.get("/color/:videoid", (req, res) => {
+  ff.toColor(req.params.videoid).then(function(data){
+    res.json({
+      frames: data
+    })
+  });
+})
 
 
 app.listen(8080, function(err) {

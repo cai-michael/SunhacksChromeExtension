@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TubeSCII</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../css/StyleSheet.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/js/jscii.js"></script>
+</head>
+
+<body>
+  <a href="../">Back to Homepage</a>
+  <h1>{{title}}</h1>
+  <video id="videlement" hidden>
+
+  </video>
+
+  <pre id="asciiVid" style='font-size: 7px;'>
+    <!--Actual ASCII video-->
+
+  </pre>
+
+  <span id="downloadMessage" hidden style="font-size: 50px; font-weight: 400">Your video is downloading<br><br></span>
+
+  <div #id="controls">
+    <input type="button" name="Play" value="Play"></input>
+    <input type="button" name="Pause" value="Pause"></input>
+  </div>
+
+  <p>{{{description}}}</p>
+  <script>
+    var vidid = "{{videoid}}";
+  </script>
+  <script src="/js/color.js"></script>
+
+</body>
+
+</html>

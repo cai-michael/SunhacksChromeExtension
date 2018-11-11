@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/cai-michael/TubeSCII#readme",
   "dependencies": {
+    "ansi_up": "^3.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "ffmpeg": "^0.0.4",
     "file-exists": "^5.0.1",
-    "fluent-ffmpeg": "^2.1.2",
     "hbs": "^4.0.1",
     "image-to-ascii": "^3.0.11",
     "is-url": "^1.2.4",
