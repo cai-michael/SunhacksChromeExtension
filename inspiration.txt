@@ -1,0 +1,11 @@
+What inspired TubeSCII?
+
+We all wanted to learn JavaScript at some point, and we figured that this hackathon would present the perfect oppurtunity to do so. 
+TubeSCII allowed us to figure out we could use Node.js to make a server and how to incorporate html and css files with the said server. 
+
+Basically we decided to make TubeSCII out of desperation to do something at this hackathon.
+
+And so we did.
+
+TubeSCII evolved before our very eyes into a loveable, yet mostly useless, JavaScript project. While it may be useless to the rest of the world to us it 
+offered a great learning experience.
