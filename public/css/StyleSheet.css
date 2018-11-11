@@ -11,6 +11,7 @@ input[type=submit] {
   color: green;
   border-style: dashed;
   border-color: green;
+  font-family: "Courier New", monospace;
 }
 
 input[type=button] {
@@ -18,7 +19,7 @@ input[type=button] {
   border-style: dashed;
   border-color: green;
   background-color: black;
-  font-family: monospace;
+  font-family:"Courier New", monospace;
 }
 
 a {
@@ -26,7 +27,7 @@ a {
   color: green;
   border-style: dashed;
   border-color: green;
-  font-family: monospace;
+  font-family: "Courier New", monospace;
 }
 
 #controls {
