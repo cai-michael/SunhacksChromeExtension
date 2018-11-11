@@ -109,7 +109,7 @@ app.get("/check/:videoid", function(req, res) {
 });
 
 
-app.listen(8080, function(err) {
+app.listen(process.env.PORT || 8080, function(err) {
   if (err) throw err;
   console.log("Running!")
 });
