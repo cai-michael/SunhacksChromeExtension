@@ -4,6 +4,7 @@ html {
   background-color: black;
   color: green;
   font-family: "Courier New", monospace;
+  padding-left: 28%;
 }
 
 input[type=submit] {
@@ -23,11 +24,19 @@ input[type=button] {
 }
 h1 {
   padding-top: 0.5%;
+  padding-right: 0px;
+  margin-right: 0px;
 }
 #logo{
   position: absolute;
   top: 3%;
   display: inline-block;
+  padding-left: 10px;
+  margin-left: 0px;
+
+}
+#input_area{
+  padding-left: 3%;
 }
 a {
   text-decoration: none;
