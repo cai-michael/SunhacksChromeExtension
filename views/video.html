@@ -7,19 +7,23 @@
   <title>TubeSCII</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../css/StyleSheet.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/js/jscii.js"></script>
 </head>
 
 <body>
   <a href="../">Back to Homepage</a>
   <h1>{{title}}</h1>
-  <video id="videlement">
+  <video id="videlement" hidden>
 
   </video>
 
-  <div>
+  <pre id="asciiVid" style='font-size: 7px;'>
     <!--Actual ASCII video-->
 
-  </div>
+  </pre>
 
   <span id="downloadMessage" hidden style="font-size: 50px; font-weight: 400">Your video is downloading<br><br></span>
 
@@ -29,9 +33,6 @@
   </div>
 
   <p>{{{description}}}</p>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     var vidid = "{{videoid}}";
   </script>
