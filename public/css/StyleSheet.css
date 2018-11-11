@@ -21,7 +21,12 @@ input[type=button] {
   background-color: black;
   font-family:"Courier New", monospace;
 }
+h1 {
 
+}
+#logo{
+  display: inline-block;
+}
 a {
   text-decoration: none;
   color: green;
