@@ -11,9 +11,9 @@ module.exports.isValidVideo = function(url){
 
 module.exports.downloadVideo = function(url){
   return new Promise(function(resolve, reject){
-    var p = path.join(__dirname, "videos", ytdl.getURLVideoID(url) + ".crdownload")
+    var p = path.join(__dirname, "downloads", ytdl.getURLVideoID(url) + ".crdownload")
     ytdl(url).pipe(fs.createWriteStream(p)).on('finish', function(){
-      fs.rename(path.join(__dirname, "videos", ytdl.getURLVideoID(url) + ".crdownload"), path.join(__dirname, "videos", ytdl.getURLVideoID(url) + ".mp4"), function(err){
+      fs.rename(path.join(__dirname, "downloads", ytdl.getURLVideoID(url) + ".crdownload"), path.join(__dirname, "videos", ytdl.getURLVideoID(url) + ".mp4"), function(err){
         if(err) return reject(err);
         return resolve();
       });

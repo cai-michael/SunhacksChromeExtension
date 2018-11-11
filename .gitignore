@@ -1,2 +1,4 @@
 node_modules/*
 videos/*.mp4
+downloads/*.crdownload
+.DS_Store
