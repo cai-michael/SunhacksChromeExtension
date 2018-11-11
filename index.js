@@ -31,9 +31,13 @@ app.get("/", function (req, res) {
 });
 
 app.get("/videos/:videoid", function(req, res) {
-  res.render("video", {
-    videoid: req.params.videoid
-  })
+  videoValidator.getInfo("https://www.youtube.com/watch?v=" + req.params.videoid).then(function(info) {
+    res.render("video", {
+      videoid: req.params.videoid,
+      title: info.title,
+      description: info.description.replace(new RegExp("\n", "g"),"<br>")
+    })
+  });
 })
 
 app.post("/video", function(req, res) {
@@ -79,18 +83,18 @@ app.get("/check/:videoid", function(req, res) {
           downloading: true
         })
 
-        if(videosDownloading.indexOf(req.params.videoid) == -1){
+        if (videosDownloading.indexOf(req.params.videoid) == -1) {
           console.log("Downloading Video: %s", req.params.videoid)
           videosDownloading.push(req.params.videoid)
-          videoValidator.downloadVideo("https://www.youtube.com/watch?v=" + req.params.videoid).then(function(){
+          videoValidator.downloadVideo("https://www.youtube.com/watch?v=" + req.params.videoid).then(function() {
             videosDownloading.splice(videosDownloading.indexOf(req.params.videoid), 1);
             console.log("Video Downoaded: %s", req.params.videoid)
           });
-        }else{
+        } else {
           console.log("Already Downloading Video: %s", req.params.videoid)
         }
       }
-    }).catch(function(){
+    }).catch(function() {
       res.json({
         isValid: true,
         downloaded: false,
@@ -103,6 +107,7 @@ app.get("/check/:videoid", function(req, res) {
     })
   })
 });
+
 
 app.listen(8080, function(err) {
   if (err) throw err;
