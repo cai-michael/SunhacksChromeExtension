@@ -20,7 +20,9 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "file-exists": "^5.0.1",
+    "fluent-ffmpeg": "^2.1.2",
     "hbs": "^4.0.1",
+    "image-to-ascii": "^3.0.11",
     "is-url": "^1.2.4",
     "youtube-validate": "^1.2.4",
     "ytdl-core": "^0.28.0"
