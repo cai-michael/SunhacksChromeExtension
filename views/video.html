@@ -21,14 +21,16 @@
 
   </div>
 
-<span hidden>Your video is downloading</span>
+  <span id="downloadMessage" hidden style="font-size: 50px; font-weight: 400">Your video is downloading<br><br></span>
+
   <div #id="controls">
     <input type="button" name="Play" value="Play"></input>
     <input type="button" name="Pause" value="Pause"></input>
   </div>
 
-<p>{{{description}}}</p>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <p>{{{description}}}</p>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     var vidid = "{{videoid}}";
