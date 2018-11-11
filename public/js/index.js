@@ -10,6 +10,7 @@ $(document).ready(function () {
             if (res.data.downloaded) {
                 $("#videlement").attr("src", "/vids/" + vidid + ".mp4");
                 $("#videlement")[0].load();
+                $("#videlement")[0].pause();
             } else {
                 if (res.data.downloading) {
                     $("#downloadMessage").show();
@@ -29,6 +30,7 @@ $(document).ready(function () {
     $("[name='Pause']").click(function () {
         $("#videlement")[0].pause();
     })
+    $("#videlement").one("loadeddata", runAscii)
 })
 
 function checkDownload() {
@@ -41,9 +43,30 @@ function checkDownload() {
             if (res.data.downloaded) {
                 $("#videlement").attr("src", "/vids/" + vidid + ".mp4");
                 $("#videlement")[0].load();
+                $("#videlement")[0].pause();
                 $("#downloadMessage").hide();
                 clearInterval(checkloop);
             }
         }
+    })
+}
+
+function runAscii() {
+    var ascii = new Jscii({
+        el: document.getElementById("videlement"),
+        width: 150,
+        container: document.getElementById("asciiVid")
+    })
+    ascii.play();
+    $("#videlement")[0].play();
+    setTimeout(() => {
+        $("#videlement")[0].pause();
+        ascii.pause();
+    }, 150)
+    $("[name='Play']").click(function () {
+        ascii.play();
+    })
+    $("[name='Pause']").click(function () {
+        ascii.pause();
     })
 }
