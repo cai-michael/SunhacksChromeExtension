@@ -108,14 +108,6 @@ app.get("/check/:videoid", function(req, res) {
   })
 });
 
-app.get("/info/:videoid", function(req, res) {
-  videoValidator.getInfo("https://www.youtube.com/watch?v=" + req.params.videoid).then(function(info) {
-    res.json({
-      title:info.title,
-      description:info.description
-    })
-  })
-})
 
 app.listen(8080, function(err) {
   if (err) throw err;
