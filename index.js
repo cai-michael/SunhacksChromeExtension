@@ -17,6 +17,9 @@ var isDownloaded = require("file-exists")
 var app = express();
 
 // Parse the body of forms
+app.set('view engine', 'html')
+app.engine('html', require('hbs').__express);
+
 app.use(bodyParser.urlencoded({
   extended: false
 }))
@@ -28,7 +31,9 @@ app.get("/", function (req, res) {
 });
 
 app.get("/videos/:videoid", function(req, res) {
-  res.end(req.params.videoid)
+  res.render("video", {
+    videoid: req.params.videoid
+  })
 })
 
 app.post("/video", function(req, res) {
