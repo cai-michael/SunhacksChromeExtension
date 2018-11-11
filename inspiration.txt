@@ -9,3 +9,11 @@ And so we did.
 
 TubeSCII evolved before our very eyes into a loveable, yet mostly useless, JavaScript project. While it may be useless to the rest of the world to us it 
 offered a great learning experience.
+
+What inspired TubeSCII?
+
+At the beginning of sunhack we were stumped. Although we're sophmores we still felt like a lot of things were out of scope for us. Thinking of an idea that was interesting, let alone plausible in 36 hours was a difficult feat. Our first night felt like a lot of ideas that never even made it to step one of being implemented, we spent the whole time looking up APIs trying to see what was available to us. 
+
+We came to the conclusion that anything of any real use was a little out of our reach, so we picked up on another secondary goal instead.
+
+TubeSCII was a fun idea in concept, a video player that played videos in ASCII art. We tossed that idea around and added bits of details before we sat down determined to learn Javascript just to achieve this idea. In just a little over 8 hours we had a small webserver running that could play videos thanks to the help of one of our more prodigious teammates, Wyatt. Each little hurdle and feat we overcame felt like a big achievement in our coding knowledge. I personally feel like I've explored new areas of coding I could hardly think of tackling on my own. This weekend was a real success for us seeing our work come to fruition, and I'm glad to have come to sunhacks.
