@@ -12,18 +12,23 @@ input[type=submit] {
   border-style: dashed;
   border-color: green;
 }
+
 input[type=button] {
   color: green;
   border-style: dashed;
   border-color: green;
   background-color: black;
+  font-family: monospace;
 }
+
 a {
   text-decoration: none;
   color: green;
   border-style: dashed;
   border-color: green;
+  font-family: monospace;
 }
+
 #controls {
   display: inline-block;
 }
