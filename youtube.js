@@ -20,3 +20,9 @@ module.exports.downloadVideo = function(url){
     }).on('error', reject);
   });
 }
+
+module.exports.getInfo = function(url){
+  return new Promise(function(resolve, reject){
+    ytdl.getBasicInfo(url).then(resolve).catch(reject);
+  })
+}
